@@ -6,9 +6,9 @@
 using namespace Pinetime::Controllers;
 
 namespace {
-  char const* DaysStringShort[] = {"--", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"};
-  char const* MonthsString[] = {"--", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
-  char const* MonthsStringLow[] = {"--", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+  char const* DaysStringShort[] = {"--", "LUN", "MAR", "MER", "GIO", "VEN", "SAB", "DOM"};
+  char const* MonthsString[] = {"--", "GEN", "FEB", "MAR", "APR", "MAG", "GIU", "LUG", "AGO", "SET", "OTT", "NOV", "DIC"};
+  char const* MonthsStringLow[] = {"--", "Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"};
 }
 
 DateTime::DateTime(Controllers::Settings& settingsController) : settingsController {settingsController} {
