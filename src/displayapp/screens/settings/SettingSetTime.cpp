@@ -30,7 +30,7 @@ SettingSetTime::SettingSetTime(Pinetime::Applications::DisplayApp* app,
   : Screen(app), dateTimeController {dateTimeController}, settingsController {settingsController} {
 
   lv_obj_t* title = lv_label_create(lv_scr_act(), nullptr);
-  lv_label_set_text_static(title, "Set current time");
+  lv_label_set_text_static(title, "Imposta l'ora");
   lv_label_set_align(title, LV_LABEL_ALIGN_CENTER);
   lv_obj_align(title, lv_scr_act(), LV_ALIGN_IN_TOP_MID, 15, 15);
 
@@ -68,7 +68,7 @@ SettingSetTime::SettingSetTime(Pinetime::Applications::DisplayApp* app,
   lv_obj_set_size(btnSetTime, 120, 50);
   lv_obj_align(btnSetTime, lv_scr_act(), LV_ALIGN_IN_BOTTOM_MID, 0, 0);
   lblSetTime = lv_label_create(btnSetTime, nullptr);
-  lv_label_set_text_static(lblSetTime, "Set");
+  lv_label_set_text_static(lblSetTime, "Imposta");
   lv_obj_set_style_local_bg_color(btnSetTime, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, Colors::bgAlt);
   lv_obj_set_style_local_text_color(lblSetTime, LV_LABEL_PART_MAIN, LV_STATE_DISABLED, LV_COLOR_GRAY);
   lv_obj_set_event_cb(btnSetTime, SetTimeEventHandler);

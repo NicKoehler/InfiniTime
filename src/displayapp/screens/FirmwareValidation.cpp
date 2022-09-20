@@ -18,7 +18,7 @@ FirmwareValidation::FirmwareValidation(Pinetime::Applications::DisplayApp* app, 
   : Screen {app}, validator {validator} {
   labelVersion = lv_label_create(lv_scr_act(), nullptr);
   lv_label_set_text_fmt(labelVersion,
-                        "Version : %lu.%lu.%lu\n"
+                        "Versione : %lu.%lu.%lu\n"
                         "ShortRef : %s",
                         Version::Major(),
                         Version::Minor(),
@@ -33,10 +33,10 @@ FirmwareValidation::FirmwareValidation(Pinetime::Applications::DisplayApp* app, 
   lv_obj_set_width(labelIsValidated, 240);
 
   if (validator.IsValidated())
-    lv_label_set_text_static(labelIsValidated, "You have already\n#00ff00 validated# this firmware#");
+    lv_label_set_text_static(labelIsValidated, "Hai gia #00ff00 validato#\nquesto firmware#");
   else {
     lv_label_set_text_static(labelIsValidated,
-                             "Please #00ff00 Validate# this version or\n#ff0000 Reset# to rollback to the previous version.");
+                             "#00ff00 Valida# questa versione o\n#ff0000 Ripristina# per tornare alla versione precedente.");
 
     buttonValidate = lv_btn_create(lv_scr_act(), nullptr);
     buttonValidate->user_data = this;
@@ -46,7 +46,7 @@ FirmwareValidation::FirmwareValidation(Pinetime::Applications::DisplayApp* app, 
     lv_obj_set_style_local_bg_color(buttonValidate, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, Colors::highlight);
 
     labelButtonValidate = lv_label_create(buttonValidate, nullptr);
-    lv_label_set_text_static(labelButtonValidate, "Validate");
+    lv_label_set_text_static(labelButtonValidate, "Valida");
 
     buttonReset = lv_btn_create(lv_scr_act(), nullptr);
     buttonReset->user_data = this;
@@ -56,7 +56,7 @@ FirmwareValidation::FirmwareValidation(Pinetime::Applications::DisplayApp* app, 
     lv_obj_set_event_cb(buttonReset, ButtonEventHandler);
 
     labelButtonReset = lv_label_create(buttonReset, nullptr);
-    lv_label_set_text_static(labelButtonReset, "Reset");
+    lv_label_set_text_static(labelButtonReset, "Ripristina");
   }
 }
 

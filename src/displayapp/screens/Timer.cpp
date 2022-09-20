@@ -108,7 +108,7 @@ void Timer::Refresh() {
     minuteCounter.SetValue(seconds / 60);
     secondCounter.SetValue(seconds % 60);
   } else if (buttonPressing && xTaskGetTickCount() > pressTime + pdMS_TO_TICKS(150)) {
-    lv_label_set_text_static(txtPlayPause, "Reset");
+    lv_label_set_text_static(txtPlayPause, "Ripristina");
     maskPosition += 15;
     if (maskPosition > 240) {
       MaskReset();

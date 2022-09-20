@@ -31,22 +31,22 @@ namespace Pinetime {
         static constexpr int nScreens = 4;
 
         static constexpr std::array<List::Applications, entriesPerScreen * nScreens> entries {{
-          {Symbols::sun, "Display", Apps::SettingDisplay},
-          {Symbols::eye, "Wake Up", Apps::SettingWakeUp},
-          {Symbols::clock, "Time format", Apps::SettingTimeFormat},
+          {Symbols::sun, "Schermo", Apps::SettingDisplay},
+          {Symbols::eye, "Risveglio", Apps::SettingWakeUp},
+          {Symbols::clock, "Formato ora", Apps::SettingTimeFormat},
           {Symbols::home, "Watch face", Apps::SettingWatchFace},
 
-          {Symbols::shoe, "Steps", Apps::SettingSteps},
-          {Symbols::clock, "Set date", Apps::SettingSetDate},
-          {Symbols::clock, "Set time", Apps::SettingSetTime},
-          {Symbols::batteryHalf, "Battery", Apps::BatteryInfo},
+          {Symbols::shoe, "Passi", Apps::SettingSteps},
+          {Symbols::clock, "Imposta data", Apps::SettingSetDate},
+          {Symbols::clock, "Imposta ora", Apps::SettingSetTime},
+          {Symbols::batteryHalf, "Batteria", Apps::BatteryInfo},
 
-          {Symbols::clock, "Chimes", Apps::SettingChimes},
-          {Symbols::tachometer, "Shake Calib.", Apps::SettingShakeThreshold},
+          {Symbols::clock, "Rintocchi", Apps::SettingChimes},
+          {Symbols::tachometer, "Cal. Scuoti", Apps::SettingShakeThreshold},
           {Symbols::check, "Firmware", Apps::FirmwareValidation},
           {Symbols::bluetooth, "Bluetooth", Apps::SettingBluetooth},
 
-          {Symbols::list, "About", Apps::SysInfo},
+          {Symbols::list, "Informazioni", Apps::SysInfo},
           {Symbols::none, "None", Apps::None},
           {Symbols::none, "None", Apps::None},
           {Symbols::none, "None", Apps::None},

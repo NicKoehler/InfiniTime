@@ -45,7 +45,7 @@ WatchFaceTerminal::WatchFaceTerminal(DisplayApp* app,
 
   label_date = lv_label_create(lv_scr_act(), nullptr);
   lv_label_set_recolor(label_date, true);
-  lv_obj_align(label_date, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 0, -60);
+  lv_obj_align(label_date, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 0, -20);
 
   label_prompt_1 = lv_label_create(lv_scr_act(), nullptr);
   lv_obj_align(label_prompt_1, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 0, -80);
@@ -142,14 +142,14 @@ void WatchFaceTerminal::Refresh() {
           hour = hour - 12;
           ampmChar[0] = 'P';
         }
-        lv_label_set_text_fmt(label_time, "ORA  > #cba6f7 %02d:%02d:%02d %s#", hour, minute, second, ampmChar);
+        lv_label_set_text_fmt(label_time, "ORAR > #cba6f7 %02d:%02d:%02d %s#", hour, minute, second, ampmChar);
       } else {
-        lv_label_set_text_fmt(label_time, "ORA  > #cba6f7 %02d:%02d:%02d", hour, minute, second);
+        lv_label_set_text_fmt(label_time, "ORAR > #cba6f7 %02d:%02d:%02d", hour, minute, second);
       }
     }
 
     if ((year != currentYear) || (month != currentMonth) || (dayOfWeek != currentDayOfWeek) || (day != currentDay)) {
-      lv_label_set_text_fmt(label_date, "DATA > #fab387 %04d-%02d-%02d#", short(year), char(month), char(day));
+      lv_label_set_text_fmt(label_date, "DATA > #fab387 %02d/%02d/%04d#", char(day), char(month), short(year));
 
       currentYear = year;
       currentMonth = month;
@@ -171,6 +171,6 @@ void WatchFaceTerminal::Refresh() {
   stepCount = motionController.NbSteps();
   motionSensorOk = motionController.IsSensorOk();
   if (stepCount.IsUpdated() || motionSensorOk.IsUpdated()) {
-    lv_label_set_text_fmt(stepValue, "PASS > #8aadf4 %lu steps#", stepCount.Get());
+    lv_label_set_text_fmt(stepValue, "PASS > #8aadf4 %lu passi#", stepCount.Get());
   }
 }
