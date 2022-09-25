@@ -36,7 +36,7 @@ Motion::Motion(Pinetime::Applications::DisplayApp* app, Controllers::MotionContr
 
   labelStep = lv_label_create(lv_scr_act(), NULL);
   lv_obj_align(labelStep, chart, LV_ALIGN_IN_BOTTOM_LEFT, 0, 0);
-  lv_label_set_text_static(labelStep, "Steps ---");
+  lv_label_set_text_static(labelStep, "Passi ---");
 
   taskRefresh = lv_task_create(RefreshTaskCallback, LV_DISP_DEF_REFR_PERIOD, LV_TASK_PRIO_MID, this);
 }
@@ -51,7 +51,7 @@ void Motion::Refresh() {
   lv_chart_set_next(chart, ser2, motionController.Y());
   lv_chart_set_next(chart, ser3, motionController.Z());
 
-  lv_label_set_text_fmt(labelStep, "Steps %lu", motionController.NbSteps());
+  lv_label_set_text_fmt(labelStep, "Passi %lu", motionController.NbSteps());
 
   lv_label_set_text_fmt(label,
                         "X #FF0000 %d# Y #00B000 %d# Z #FFFF00 %d#",

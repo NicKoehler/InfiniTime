@@ -56,7 +56,7 @@ static void basic_init() {
 
   style_init_reset(&style_btn);
   lv_style_set_radius(&style_btn, LV_STATE_DEFAULT, 10);
-  lv_style_set_bg_opa(&style_btn, LV_STATE_DEFAULT, LV_OPA_COVER);
+  lv_style_set_bg_opa(&style_btn, LV_STATE_DEFAULT, LV_OPA_70);
   lv_style_set_bg_color(&style_btn, LV_STATE_DEFAULT, Colors::bg);
   lv_style_set_bg_color(&style_btn, LV_STATE_CHECKED, Colors::highlight);
   lv_style_set_bg_color(&style_btn, LV_STATE_DISABLED, Colors::bgDark);
