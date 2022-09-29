@@ -11,11 +11,12 @@ namespace Colors {
   static constexpr lv_color_t yellow = LV_COLOR_MAKE(0xf9, 0xe2, 0xaf);
   static constexpr lv_color_t peace = LV_COLOR_MAKE(0xfa, 0xb3, 0x87);
   static constexpr lv_color_t red = LV_COLOR_MAKE(0xf3, 0x8b, 0xa8);
+  static constexpr lv_color_t violet = LV_COLOR_MAKE(0x85, 0x60, 0xbb);
 
   static constexpr lv_color_t bg = LV_COLOR_MAKE(0x5d, 0x69, 0x7e);
-  static constexpr lv_color_t bgAlt = LV_COLOR_MAKE(0x38, 0x38, 0x38);
+  static constexpr lv_color_t bgAlt = LV_COLOR_MAKE(0x29, 0x20, 0x31);
   static constexpr lv_color_t bgDark = LV_COLOR_MAKE(0x18, 0x18, 0x18);
-  static constexpr lv_color_t highlight = mauve;
+  static constexpr lv_color_t highlight = violet;
 };
 
 /**
