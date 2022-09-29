@@ -529,7 +529,7 @@ void WatchFaceInfineat::Refresh() {
     }
 
     if ((year != currentYear) || (month != currentMonth) || (dayOfWeek != currentDayOfWeek) || (day != currentDay)) {
-      lv_label_set_text_fmt(labelDate, "%s %02d", dateTimeController.DayOfWeekShortToStringLow(), day);
+      lv_label_set_text_fmt(labelDate, "%s\n%02d", dateTimeController.DayOfWeekShortToStringLow(), day);
       lv_obj_realign(labelDate);
 
       currentYear = year;
