@@ -36,7 +36,7 @@ bool SettingWatchFace::OnTouchEvent(Pinetime::Applications::TouchEvents event) {
 }
 
 std::unique_ptr<Screen> SettingWatchFace::CreateScreen1() {
-  std::array<const char*, 4> watchfaces {"Digital face", "Analog face", "PineTimeStyle", "Terminal"};
+  std::array<const char*, 4> watchfaces {"Digitale", "Analogica", "PineTimeStyle", "Terminale"};
   return std::make_unique<Screens::CheckboxList>(0,
                                                  2,
                                                  app,
@@ -49,7 +49,7 @@ std::unique_ptr<Screen> SettingWatchFace::CreateScreen1() {
 }
 
 std::unique_ptr<Screen> SettingWatchFace::CreateScreen2() {
-  std::array<const char*, 4> watchfaces {"Infineat face", "", "", ""};
+  std::array<const char*, 4> watchfaces {"Infineat", "", "", ""};
   return std::make_unique<Screens::CheckboxList>(1,
                                                  2,
                                                  app,
