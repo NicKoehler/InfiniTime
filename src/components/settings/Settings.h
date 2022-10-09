@@ -37,10 +37,13 @@ namespace Pinetime {
         Orange,
         Pink
       };
+      enum class PTSGaugeStyle : uint8_t { Full, Half, Numeric };
+
       struct PineTimeStyle {
         Colors ColorTime = Colors::Teal;
         Colors ColorBar = Colors::Teal;
         Colors ColorBG = Colors::Black;
+        PTSGaugeStyle gaugeStyle = PTSGaugeStyle::Full;
       };
       struct WatchFaceInfineat {
         bool showSideCover = true;
@@ -119,8 +122,25 @@ namespace Pinetime {
         return settings.watchFaceInfineat.colorIndex;
       };
 
+      void SetPTSGaugeStyle(PTSGaugeStyle gaugeStyle) {
+        if (gaugeStyle != settings.PTS.gaugeStyle)
+          settingsChanged = true;
+        settings.PTS.gaugeStyle = gaugeStyle;
+      };
+      PTSGaugeStyle GetPTSGaugeStyle() const {
+        return settings.PTS.gaugeStyle;
+      };
+
       void SetAppMenu(uint8_t menu) {
         appMenu = menu;
+      };
+
+      void SetWatchfacesMenu(uint8_t menu) {
+        watchFacesMenu = menu;
+      };
+
+      uint8_t GetWatchfacesMenu() const {
+        return watchFacesMenu;
       };
 
       uint8_t GetAppMenu() const {
@@ -132,14 +152,6 @@ namespace Pinetime {
       };
       uint8_t GetSettingsMenu() const {
         return settingsMenu;
-      };
-
-      void SetWatchfacesMenu(uint8_t menu) {
-        watchFacesMenu = menu;
-      };
-
-      uint8_t GetWatchfacesMenu() const {
-        return watchFacesMenu;
       };
 
       void SetClockType(ClockType clocktype) {

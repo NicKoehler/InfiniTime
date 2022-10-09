@@ -49,7 +49,7 @@ std::unique_ptr<Screen> SettingWatchFace::CreateScreen1() {
 }
 
 std::unique_ptr<Screen> SettingWatchFace::CreateScreen2() {
-  std::array<const char*, 4> watchfaces {"Infineat", "", "", ""};
+  std::array<const char*, 4> watchfaces {"Infineat", "Casio G7710", "", ""};
   return std::make_unique<Screens::CheckboxList>(1,
                                                  2,
                                                  app,
