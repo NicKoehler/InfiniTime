@@ -46,10 +46,13 @@ jobs:
         if:   steps.cache-toolchain.outputs.cache-hit != 'true'  # Install toolchain if not found in cache
         uses: fiam/arm-none-eabi-gcc@v1.0.4
         with:
-          # GNU Embedded Toolchain for Arm release name, in the V-YYYY-qZ format (e.g. "9-2019-q4")
-          release: 9-2020-q2
-          # Directory to unpack GCC to. Defaults to a temporary directory.
-          directory: ${{ runner.temp }}/arm-none-eabi
+          name: InfiniTime MCUBoot image ${{ github.head_ref }}
+          path: ./build/output/pinetime-mcuboot-app-image-*.bin
+      - name: Upload resources artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: InfiniTime resources ${{ github.head_ref }}
+          path: ./build/output/infinitime-resources-*.zip
 
       - name: Check cache for nRF5 SDK
         id:   cache-nrf5sdk
@@ -109,18 +112,10 @@ jobs:
       #########################################################################################
       # CMake
 
-      - name: CMake
-        run:  |
-          mkdir -p build
-          cd build
-          cmake -G Ninja -DARM_NONE_EABI_TOOLCHAIN_PATH=${{ runner.temp }}/arm-none-eabi -DNRF5_SDK_PATH=${{ runner.temp }}/nrf5_sdk -DUSE_OPENOCD=1 -DBUILD_DFU=1 ../
-        #########################################################################################
-        # Make and Upload DFU Package
-        # pinetime-mcuboot-app.img must be flashed at address 0x8000 in the internal flash memory with OpenOCD:
-        # program image.bin 0x8000
-
-        # For Debugging Builds: Remove "make" option "-j" for clearer output. Add "--trace" to see details.
-        # For Faster Builds: Add "make" option "-j"
+    - name: CMake
+      # disable BUILD_RESOURCES as this is already done when building the firmware
+      run:  |
+        cmake -G Ninja -S InfiniSim -B build_lv_sim -DInfiniTime_DIR="${PWD}" -DBUILD_RESOURCES=OFF
 
       - name: Make pinetime-mcuboot-app
         run:  |
