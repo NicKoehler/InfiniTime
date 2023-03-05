@@ -38,15 +38,13 @@ namespace Pinetime {
           {Symbols::home, "Watch face", Apps::SettingWatchFace},
 
           {Symbols::shoe, "Passi", Apps::SettingSteps},
-          {Symbols::clock, "Imposta data", Apps::SettingSetDate},
-          {Symbols::clock, "Imposta ora", Apps::SettingSetTime},
+          {Symbols::clock, "Data e ora", Apps::SettingSetDateTime},
           {Symbols::batteryHalf, "Batteria", Apps::BatteryInfo},
-
           {Symbols::clock, "Rintocchi", Apps::SettingChimes},
+
           {Symbols::tachometer, "Cal. Scuoti", Apps::SettingShakeThreshold},
           {Symbols::check, "Firmware", Apps::FirmwareValidation},
           {Symbols::bluetooth, "Bluetooth", Apps::SettingBluetooth},
-
           {Symbols::list, "Informazioni", Apps::SysInfo},
 
           // {Symbols::none, "None", Apps::None},

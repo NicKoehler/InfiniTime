@@ -15,8 +15,8 @@ namespace {
   };
 
   constexpr std::array<Option, 2> options = {{
-    {"Enabled", true},
-    {"Disabled", false},
+    {"Abilitato", true},
+    {"Disabilitato", false},
   }};
 
   std::array<CheckboxList::Item, CheckboxList::MaxItems> CreateOptionArray() {

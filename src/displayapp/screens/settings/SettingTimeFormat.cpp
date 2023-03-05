@@ -14,8 +14,8 @@ namespace {
   };
 
   constexpr std::array<Option, 2> options = {{
-    {Pinetime::Controllers::Settings::ClockType::H12, "12-hour"},
-    {Pinetime::Controllers::Settings::ClockType::H24, "24-hour"},
+    {Pinetime::Controllers::Settings::ClockType::H12, "12-ore"},
+    {Pinetime::Controllers::Settings::ClockType::H24, "24-ore"},
   }};
 
   std::array<CheckboxList::Item, CheckboxList::MaxItems> CreateOptionArray() {
@@ -46,7 +46,7 @@ SettingTimeFormat::SettingTimeFormat(Pinetime::Controllers::Settings& settingsCo
   : checkboxList(
       0,
       1,
-      "Time format",
+      "Formato tempo",
       Symbols::clock,
       GetDefaultOption(settingsController.GetClockType()),
       [&settings = settingsController](uint32_t index) {
