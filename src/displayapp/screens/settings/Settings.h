@@ -20,6 +20,7 @@ namespace Pinetime {
         bool OnTouchEvent(Pinetime::Applications::TouchEvents event) override;
 
       private:
+        DisplayApp* app;
         auto CreateScreenList() const;
         std::unique_ptr<Screen> CreateScreen(unsigned int screenNum) const;
 
@@ -28,7 +29,7 @@ namespace Pinetime {
         static constexpr int entriesPerScreen = 4;
 
         // Increment this when more space is needed
-        static constexpr int nScreens = 4;
+        static constexpr int nScreens = 3;
 
         static constexpr std::array<List::Applications, entriesPerScreen * nScreens> entries {{
           {Symbols::sun, "Schermo", Apps::SettingDisplay},
@@ -47,9 +48,11 @@ namespace Pinetime {
           {Symbols::bluetooth, "Bluetooth", Apps::SettingBluetooth},
 
           {Symbols::list, "Informazioni", Apps::SysInfo},
-          {Symbols::none, "None", Apps::None},
-          {Symbols::none, "None", Apps::None},
-          {Symbols::none, "None", Apps::None},
+
+          // {Symbols::none, "None", Apps::None},
+          // {Symbols::none, "None", Apps::None},
+          // {Symbols::none, "None", Apps::None},
+          // {Symbols::none, "None", Apps::None},
         }};
         ScreenList<nScreens> screens;
       };

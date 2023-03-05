@@ -14,11 +14,10 @@ namespace {
   }
 }
 
-SettingShakeThreshold::SettingShakeThreshold(DisplayApp* app,
-                                             Controllers::Settings& settingsController,
+SettingShakeThreshold::SettingShakeThreshold(Controllers::Settings& settingsController,
                                              Controllers::MotionController& motionController,
                                              System::SystemTask& systemTask)
-  : Screen(app), settingsController {settingsController}, motionController {motionController}, systemTask {systemTask} {
+  : settingsController {settingsController}, motionController {motionController}, systemTask {systemTask} {
 
   lv_obj_t* title = lv_label_create(lv_scr_act(), nullptr);
   lv_label_set_text_static(title, "Sensibilita'");
@@ -102,7 +101,7 @@ void SettingShakeThreshold::Refresh() {
     }
     if (xTaskGetTickCount() - vCalTime > pdMS_TO_TICKS(7500)) {
       lv_btn_set_state(calButton, LV_STATE_DEFAULT);
-      lv_event_send(calButton, LV_EVENT_VALUE_CHANGED, NULL);
+      lv_event_send(calButton, LV_EVENT_VALUE_CHANGED, nullptr);
     }
   }
   if (motionController.currentShakeSpeed() - 300 > lv_arc_get_value(animArc)) {

@@ -28,10 +28,8 @@ namespace {
   }
 }
 
-HeartRate::HeartRate(Pinetime::Applications::DisplayApp* app,
-                     Controllers::HeartRateController& heartRateController,
-                     System::SystemTask& systemTask)
-  : Screen(app), heartRateController {heartRateController}, systemTask {systemTask} {
+HeartRate::HeartRate(Controllers::HeartRateController& heartRateController, System::SystemTask& systemTask)
+  : heartRateController {heartRateController}, systemTask {systemTask} {
   bool isHrRunning = heartRateController.State() != Controllers::HeartRateController::States::Stopped;
   label_hr = lv_label_create(lv_scr_act(), nullptr);
 
@@ -64,8 +62,9 @@ HeartRate::HeartRate(Pinetime::Applications::DisplayApp* app,
 
   label_startStop = lv_label_create(btn_startStop, nullptr);
   UpdateStartStopButton(isHrRunning);
-  if (isHrRunning)
+  if (isHrRunning) {
     systemTask.PushMessage(Pinetime::System::Messages::DisableSleeping);
+  }
 
   taskRefresh = lv_task_create(RefreshTaskCallback, 100, LV_TASK_PRIO_MID, this);
 }
